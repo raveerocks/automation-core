@@ -1,11 +1,11 @@
-package io.raveerocks.thread;
+package io.raveerocks.google;
 
+import io.raveerocks.google.GoogleSearchTest;
 import io.raveerocks.util.CapabilityBuilder;
 import io.raveerocks.util.TestCase;
 import io.raveerocks.util.TestCaseUtil;
 import org.openqa.selenium.Capabilities;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -15,6 +15,15 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class ExecutorThreadTest {
+
+    private static final String TEST_PATH = "/opt/ravee/Automation Core/src/test/resources";
+    File testFile;
+
+    @BeforeSuite
+    @Parameters({"test-data"})
+    public void setUp(@Optional String testFile) {
+        this.testFile = new File(TEST_PATH+"/"+testFile);
+    }
 
     @Test(dataProvider = "dataProvider")
     private void test(List<GoogleSearchTest> googleSearchTests) {
@@ -52,8 +61,7 @@ public class ExecutorThreadTest {
 
     @DataProvider
     private Object[][] dataProvider(){
-        File file = new File("/opt/ravee/Automation Core/src/test/resources/Test Sheet.xlsx");
-        List<TestCase> testCases = TestCaseUtil.parse(file, 0);
+        List<TestCase> testCases = TestCaseUtil.parse(testFile, 0);
         Object[][] data = new Object[1][1];
         List<GoogleSearchTest> tests = new ArrayList<>();
 

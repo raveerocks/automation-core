@@ -1,4 +1,4 @@
-package io.raveerocks.thread;
+package io.raveerocks.core;
 
 public abstract class AbstractTest implements Runnable{
 

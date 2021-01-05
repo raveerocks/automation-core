@@ -1,5 +1,6 @@
-package io.raveerocks.thread;
+package io.raveerocks.google;
 
+import io.raveerocks.core.AbstractTest;
 import io.raveerocks.driver.DriverUtil;
 import io.raveerocks.driver.TestService;
 import io.raveerocks.google.HomePage;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 
-public class GoogleSearchTest extends AbstractTest{
+public class GoogleSearchTest extends AbstractTest {
 
     private Capabilities capabilities;
     private String searchTerm;
