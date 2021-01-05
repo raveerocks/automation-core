@@ -20,7 +20,7 @@ public class BrowserStackDriverFactory implements RemoteDriverFactory {
     public WebDriver getDriver(Capabilities capabilities) {
         try {
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities(capabilities);
-            desiredCapabilities.setCapability("browserstack.geoLocation", "IN");
+            desiredCapabilities.setCapability("browserstack.geoLocation", "US");
             return new RemoteWebDriver(new URL(browserStackCredentials.getBROWSERSTACK_URL()), desiredCapabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();

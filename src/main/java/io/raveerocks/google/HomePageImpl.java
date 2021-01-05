@@ -1,5 +1,6 @@
 package io.raveerocks.google;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,14 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePageImpl implements HomePage {
 
-    private static final String URL = "https://www.google.com";
+    private static final String URL = "https://www.google.co.in";
     private WebDriver webDriver;
     @FindBy(name = "q")
     private WebElement searchBox;
 
     @FindBy(xpath = "(//input[@value='Google Search'])[2]")
     private WebElement submit;
-
 
     /*
 
@@ -81,6 +81,10 @@ public class HomePageImpl implements HomePage {
     public void goHome() {
         webDriver.get(URL);
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 20);
+        webDriverWait.until(timedDriver -> timedDriver.getTitle().contains("Google"));
+        if(webDriver.findElements(new By.ByLinkText("English")).size()!=0){
+            webDriver.findElement(new By.ByLinkText("English")).click();
+        }
         webDriverWait.until(timedDriver -> timedDriver.getTitle().contains("Google"));
     }
 }
