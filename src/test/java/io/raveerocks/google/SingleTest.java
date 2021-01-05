@@ -1,6 +1,5 @@
 package io.raveerocks.google;
 
-import io.raveerocks.google.GoogleSearchTest;
 import io.raveerocks.util.CapabilityBuilder;
 import io.raveerocks.util.TestCase;
 import io.raveerocks.util.TestCaseUtil;
@@ -8,7 +7,6 @@ import org.openqa.selenium.Capabilities;
 import org.testng.annotations.*;
 
 import java.io.File;
-
 import java.util.List;
 
 public class SingleTest {
@@ -19,21 +17,21 @@ public class SingleTest {
     @BeforeSuite
     @Parameters({"test-data"})
     public void setUp(@Optional String testFile) {
-        this.testFile = new File(TEST_PATH+"/"+testFile);
+        this.testFile = new File(TEST_PATH + "/" + testFile);
     }
 
     @Test(dataProvider = "dataProvider")
-    public void test(Capabilities capabilities, String searchTerm, String expectedTitle){
+    public void test(Capabilities capabilities, String searchTerm, String expectedTitle) {
         GoogleSearchTest googleSearchTest = new GoogleSearchTest(capabilities, searchTerm, expectedTitle);
         googleSearchTest.run();
     }
 
     @DataProvider
-    private Object[][] dataProvider(){
+    private Object[][] dataProvider() {
         List<TestCase> testCases = TestCaseUtil.parse(testFile, 0);
         Object[][] data = new Object[testCases.size()][3];
 
-        for (int i=0; i<testCases.size(); i++){
+        for (int i = 0; i < testCases.size(); i++) {
             TestCase testCase = testCases.get(i);
             Capabilities capabilities = new CapabilityBuilder()
                     .setTestServiceProvider(testCase.getTestServiceProvider())
@@ -47,7 +45,7 @@ public class SingleTest {
                     .setImplicitWaitTime(testCase.getImplicitWaitTime())
                     .setHeadLess(testCase.getHeadLess())
                     .build();
-            data[i][0] =capabilities;
+            data[i][0] = capabilities;
             data[i][1] = testCase.getParams()[0];
             data[i][2] = testCase.getExpectedResult();
         }

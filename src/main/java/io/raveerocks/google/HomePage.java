@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 
 public interface HomePage extends BasePage {
     WebElement getSearchBox();
+
     WebElement getSubmit();
+
     String getTitle();
 }

@@ -1,6 +1,6 @@
 package io.raveerocks.core;
 
-public abstract class AbstractTest implements Runnable{
+public abstract class AbstractTest implements Runnable {
 
     protected abstract void test();
 

@@ -60,7 +60,7 @@ public class LocalDriverFactory implements DriverFactory {
 
     private FirefoxDriver getFirefoxDriver(Capabilities capabilities) {
         FirefoxOptions firefoxOptions = new FirefoxOptions();
-        if (Boolean.valueOf(CapabilityUtil.getCapabilityString(capabilities, CapabilityConstants.HEAD_LESS))){
+        if (Boolean.valueOf(CapabilityUtil.getCapabilityString(capabilities, CapabilityConstants.HEAD_LESS))) {
             firefoxOptions.addArguments("-headless");
         }
         FirefoxDriver firefoxDriver = new FirefoxDriver(firefoxOptions);

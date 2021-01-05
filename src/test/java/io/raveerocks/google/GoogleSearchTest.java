@@ -3,7 +3,6 @@ package io.raveerocks.google;
 import io.raveerocks.core.AbstractTest;
 import io.raveerocks.driver.DriverUtil;
 import io.raveerocks.driver.TestService;
-import io.raveerocks.google.HomePage;
 import io.raveerocks.services.GoogleService;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -27,7 +26,7 @@ public class GoogleSearchTest extends AbstractTest {
         TestService testService = DriverUtil.getDriver(capabilities);
         WebDriver webDriver = testService.startTest(capabilities);
         HomePage homePage = GoogleService.getDefaultInstance().searchByEnter(webDriver, searchTerm);
-        Assert.assertEquals(homePage.getTitle(),expectedTitle);
+        Assert.assertEquals(homePage.getTitle(), expectedTitle);
         testService.endTest();
         homePage.getWebDriver().quit();
     }

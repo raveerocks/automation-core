@@ -1,6 +1,5 @@
 package io.raveerocks.google;
 
-import io.raveerocks.google.GoogleSearchTest;
 import io.raveerocks.util.CapabilityBuilder;
 import io.raveerocks.util.TestCase;
 import io.raveerocks.util.TestCaseUtil;
@@ -20,11 +19,11 @@ public class ParallelThreadTest {
     @BeforeSuite
     @Parameters({"test-data"})
     public void setUp(@Optional String testFile) {
-        this.testFile = new File(TEST_PATH+"/"+testFile);
+        this.testFile = new File(TEST_PATH + "/" + testFile);
     }
 
     @Test(dataProvider = "dataProvider")
-    private void test(List<GoogleSearchTest> googleSearchTests){
+    private void test(List<GoogleSearchTest> googleSearchTests) {
         List<Thread> testThreads = googleSearchTests.stream().map(test -> {
             Thread thread = new Thread(test);
             thread.start();
@@ -42,12 +41,12 @@ public class ParallelThreadTest {
     }
 
     @DataProvider
-    private Object[][] dataProvider(){
+    private Object[][] dataProvider() {
         List<TestCase> testCases = TestCaseUtil.parse(testFile, 0);
         Object[][] data = new Object[1][1];
         List<GoogleSearchTest> tests = new ArrayList<>();
 
-        for (int i=0; i<testCases.size(); i++){
+        for (int i = 0; i < testCases.size(); i++) {
             TestCase testCase = testCases.get(i);
             Capabilities capabilities = new CapabilityBuilder()
                     .setTestServiceProvider(testCase.getTestServiceProvider())
@@ -61,7 +60,7 @@ public class ParallelThreadTest {
                     .setImplicitWaitTime(testCase.getImplicitWaitTime())
                     .setHeadLess(testCase.getHeadLess())
                     .build();
-            tests.add(new GoogleSearchTest(capabilities,testCase.getParams()[0],testCase.getExpectedResult()));
+            tests.add(new GoogleSearchTest(capabilities, testCase.getParams()[0], testCase.getExpectedResult()));
 
         }
         data[0][0] = tests;

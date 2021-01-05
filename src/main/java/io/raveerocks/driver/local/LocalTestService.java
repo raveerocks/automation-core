@@ -9,7 +9,7 @@ public class LocalTestService implements TestService {
     private LocalDriverFactory localDriverFactory;
     private WebDriver webDriver;
 
-    public LocalTestService(){
+    public LocalTestService() {
         localDriverFactory = new LocalDriverFactory();
     }
 

@@ -1,6 +1,5 @@
 package io.raveerocks.google;
 
-import io.raveerocks.google.GoogleSearchTest;
 import io.raveerocks.util.CapabilityBuilder;
 import io.raveerocks.util.TestCase;
 import io.raveerocks.util.TestCaseUtil;
@@ -22,7 +21,7 @@ public class ExecutorThreadTest {
     @BeforeSuite
     @Parameters({"test-data"})
     public void setUp(@Optional String testFile) {
-        this.testFile = new File(TEST_PATH+"/"+testFile);
+        this.testFile = new File(TEST_PATH + "/" + testFile);
     }
 
     @Test(dataProvider = "dataProvider")
@@ -48,7 +47,7 @@ public class ExecutorThreadTest {
             e.printStackTrace();
         }
 
-        for ( Future<String> future : futures){
+        for (Future<String> future : futures) {
             try {
                 System.out.println(future.get());
             } catch (InterruptedException e) {
@@ -60,12 +59,12 @@ public class ExecutorThreadTest {
     }
 
     @DataProvider
-    private Object[][] dataProvider(){
+    private Object[][] dataProvider() {
         List<TestCase> testCases = TestCaseUtil.parse(testFile, 0);
         Object[][] data = new Object[1][1];
         List<GoogleSearchTest> tests = new ArrayList<>();
 
-        for (int i=0; i<testCases.size(); i++){
+        for (int i = 0; i < testCases.size(); i++) {
             TestCase testCase = testCases.get(i);
             Capabilities capabilities = new CapabilityBuilder()
                     .setTestServiceProvider(testCase.getTestServiceProvider())
@@ -79,7 +78,7 @@ public class ExecutorThreadTest {
                     .setImplicitWaitTime(testCase.getImplicitWaitTime())
                     .setHeadLess(testCase.getHeadLess())
                     .build();
-            tests.add(new GoogleSearchTest(capabilities,testCase.getParams()[0],testCase.getExpectedResult()));
+            tests.add(new GoogleSearchTest(capabilities, testCase.getParams()[0], testCase.getExpectedResult()));
 
         }
         data[0][0] = tests;

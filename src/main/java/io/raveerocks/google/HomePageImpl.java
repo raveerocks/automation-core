@@ -8,9 +8,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePageImpl implements HomePage {
 
-    private WebDriver webDriver;
     private static final String URL = "https://www.google.com";
-
+    private WebDriver webDriver;
     @FindBy(name = "q")
     private WebElement searchBox;
 
@@ -55,7 +54,7 @@ public class HomePageImpl implements HomePage {
 
     public HomePageImpl(WebDriver webDriver) {
         this.webDriver = webDriver;
-        PageFactory.initElements(webDriver,this);
+        PageFactory.initElements(webDriver, this);
     }
 
     @Override
@@ -81,7 +80,7 @@ public class HomePageImpl implements HomePage {
     @Override
     public void goHome() {
         webDriver.get(URL);
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver,20);
-        webDriverWait.until(timedDriver ->timedDriver.getTitle().contains("Google"));
+        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 20);
+        webDriverWait.until(timedDriver -> timedDriver.getTitle().contains("Google"));
     }
 }

@@ -9,8 +9,8 @@ public class CapabilityConstants {
     public static final String BROWSER_VERSION = "browser_version";
     public static final String NAME = "name";
     public static final String BUILD = "build";
-    public static final String IMPLICIT_WAIT_TIME="implicit_wait_time";
-    public static final String HEAD_LESS="head_less";
-    public static final String PARAMS="params";
-    public static final String EXPECTED_RESULT="expected_result";
+    public static final String IMPLICIT_WAIT_TIME = "implicit_wait_time";
+    public static final String HEAD_LESS = "head_less";
+    public static final String PARAMS = "params";
+    public static final String EXPECTED_RESULT = "expected_result";
 }
