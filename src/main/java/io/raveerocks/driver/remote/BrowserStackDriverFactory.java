@@ -1,5 +1,6 @@
 package io.raveerocks.driver.remote;
 
+import io.raveerocks.util.CapabilityConstants;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -21,6 +22,7 @@ public class BrowserStackDriverFactory implements RemoteDriverFactory {
         try {
             DesiredCapabilities desiredCapabilities = new DesiredCapabilities(capabilities);
             desiredCapabilities.setCapability("browserstack.geoLocation", "US");
+            desiredCapabilities.setCapability(CapabilityConstants.BUILD,browserStackCredentials.getBROWSERSTACK_BUILD());
             return new RemoteWebDriver(new URL(browserStackCredentials.getBROWSERSTACK_URL()), desiredCapabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
