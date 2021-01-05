@@ -33,7 +33,7 @@ public class ExecutorThreadTest {
                 .map(googleSearchTest -> {
                     Callable<String> callable = () -> {
                         googleSearchTest.run();
-                        return "Completed ";
+                        return "Completed";
                     };
                     return callable;
                 })
@@ -47,7 +47,7 @@ public class ExecutorThreadTest {
             e.printStackTrace();
         }
 
-        for (Future<String> future : futures) {
+        /*for (Future<String> future : futures) {
             try {
                 System.out.println(future.get());
             } catch (InterruptedException e) {
@@ -55,7 +55,7 @@ public class ExecutorThreadTest {
             } catch (ExecutionException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
     }
 
     @DataProvider
