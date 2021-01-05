@@ -9,17 +9,16 @@ import java.net.URL;
 
 public class BrowserStackDriverFactory implements RemoteDriverFactory {
 
-    private String remoteURL;
+   BrowserStackCredentials browserStackCredentials;
 
     public BrowserStackDriverFactory() {
-        this.remoteURL = System.getenv("BS_URL");;
+        browserStackCredentials = new BrowserStackCredentials();
     }
-
 
     @Override
     public WebDriver getDriver(Capabilities capabilities) {
         try {
-            return new RemoteWebDriver(new URL(remoteURL),capabilities);
+            return new RemoteWebDriver(new URL(browserStackCredentials.getBROWSERSTACK_URL()),capabilities);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }

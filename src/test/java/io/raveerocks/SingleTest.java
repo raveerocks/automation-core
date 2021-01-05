@@ -17,11 +17,6 @@ public class SingleTest {
 
     @Test(dataProvider = "dataProvider")
     public void test(Capabilities capabilities, String searchTerm, String expectedTitle){
-        Map<String, String> getenv = System.getenv();
-        for (String key : getenv.keySet()){
-            System.out.println("Property : "+key+" : "+getenv.get(key));
-        }
-
         GoogleSearchTest googleSearchTest = new GoogleSearchTest(capabilities, searchTerm, expectedTitle);
         googleSearchTest.run();
     }
