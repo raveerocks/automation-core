@@ -1,6 +1,6 @@
 package io.raveerocks.util;
 
-public class CapabilityConstants {
+public final class CapabilityConstants {
     public static final String TEST_SERVICE_PROVIDER = "test_service_provider";
     public static final String OPERATING_SYSTEM = "os";
     public static final String OPERATING_SYSTEM_VERSION = "os_version";
@@ -13,4 +13,6 @@ public class CapabilityConstants {
     public static final String HEAD_LESS = "head_less";
     public static final String PARAMS = "params";
     public static final String EXPECTED_RESULT = "expected_result";
+
+    private CapabilityConstants() {}
 }

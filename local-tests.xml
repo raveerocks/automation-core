@@ -4,7 +4,7 @@
     <parameter name="test-data" value="local-test-data.xlsx"></parameter>
     <test verbose="2" name="Single Test">
         <classes>
-            <class name="io.raveerocks.google.SingleTest">
+            <class name="io.raveerocks.services.google.SingleTest">
                 <methods>
                     <include name="test"/>
                 </methods>
@@ -13,7 +13,7 @@
     </test>
     <test verbose="2" name="Parallel Threads Test">
         <classes>
-            <class name="io.raveerocks.google.ParallelThreadTest">
+            <class name="io.raveerocks.services.google.ParallelThreadTest">
                 <methods>
                     <include name="test"/>
                 </methods>
@@ -22,7 +22,7 @@
     </test>
     <test verbose="2" name="Executor Threads Test">
         <classes>
-            <class name="io.raveerocks.google.ExecutorThreadTest">
+            <class name="io.raveerocks.services.google.ExecutorThreadTest">
                 <methods>
                     <include name="test"/>
                 </methods>

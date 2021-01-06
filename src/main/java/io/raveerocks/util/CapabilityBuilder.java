@@ -3,7 +3,7 @@ package io.raveerocks.util;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-public class CapabilityBuilder {
+public final class CapabilityBuilder {
 
     private String testServiceProvider;
     private String operatingSystem;
@@ -26,12 +26,10 @@ public class CapabilityBuilder {
         return this;
     }
 
-
     public CapabilityBuilder setOperatingSystemVersion(String operatingSystemVersion) {
         this.operatingSystemVersion = operatingSystemVersion;
         return this;
     }
-
 
     public CapabilityBuilder setResolution(String resolution) {
         this.resolution = resolution;
@@ -53,7 +51,6 @@ public class CapabilityBuilder {
         return this;
     }
 
-
     public CapabilityBuilder setBuild(String build) {
         this.build = build;
         return this;
@@ -63,7 +60,6 @@ public class CapabilityBuilder {
         this.implicitWaitTime = implicitWaitTime;
         return this;
     }
-
 
     public CapabilityBuilder setHeadLess(String headLess) {
         this.headLess = headLess;
